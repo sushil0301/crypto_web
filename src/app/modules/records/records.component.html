@@ -1,0 +1,31 @@
+<input type="text" id="search-input1" style="margin-top: 10px;margin-bottom: 10px;" (keyup)="serachData($event)"
+  [(ngModel)]="payload.title" placeholder="Search Here">
+<div style="align-items: center;">
+  <!-- <div class="row"> -->
+  <table>
+    <thead>
+      <tr>
+        <th>Exchange</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr
+        *ngFor="let item of cryptoRecords | paginate: { itemsPerPage: payload.size, currentPage: payload.page, id: 'crypto', totalItems: total_docs }; let i =index">
+        <th><img src="{{item.icon}}"> {{item.name}}</th>
+        <th>{{item.volume_1day_usd}}</th>
+
+      </tr>
+
+    </tbody>
+  </table>
+  <!-- </div> -->
+  <div style="height: 100px;">
+    <pagination-controls class=" float-right" id="crypto" (pageChange)="pageChanged($event)" maxSize="10"
+      directionLinks="true" responsive="true" previousLabel="Previous" nextLabel="Next"
+      screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page"
+      autoHide="true">
+    </pagination-controls>
+  </div>
+</div>

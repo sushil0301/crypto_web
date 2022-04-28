@@ -1,0 +1,9 @@
+th,td,tr{
+  border: 1px solid;
+  padding: 6px;
+
+}
+table{
+  line-height: 25px;
+  align-items: center;
+}
